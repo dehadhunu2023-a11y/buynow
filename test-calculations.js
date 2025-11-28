@@ -1,4 +1,4 @@
-// Test script to verify USDT TRC20 purchase calculations
+// Test script to verify FUSDT TRC20 purchase calculations
 const CONFIG = {
     MIN_USDT: 500,
     MAX_USDT: 500000,
@@ -27,7 +27,7 @@ const calculator = {
 // Test cases
 const testAmounts = [500, 1000, 2500, 5000, 10000];
 
-console.log('🧪 Testing USDT TRC20 Purchase Calculations\n');
+console.log('🧪 Testing FUSDT TRC20 Purchase Calculations\n');
 console.log('=' .repeat(60));
 
 testAmounts.forEach(amount => {
