@@ -783,28 +783,94 @@ body {
     text-align: center;
 }
 
+.amount-description {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.amount-description small {
+    font-size: 0.75rem;
+    color: #8A8A8A;
+    font-style: italic;
+}
+
 /* ===== POPUP NOTICE ===== */
 .popup-notice {
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    padding: 1rem;
-    background-color: rgba(255, 199, 0, 0.05);
-    border: 1px solid rgba(255, 199, 0, 0.2);
-    border-radius: 8px;
+    padding: 1.25rem;
+    background-color: rgba(0, 220, 130, 0.05);
+    border: 1px solid rgba(0, 220, 130, 0.2);
+    border-radius: 12px;
     margin-bottom: 1.5rem;
 }
 
 .popup-notice svg {
     flex-shrink: 0;
     margin-top: 0.125rem;
+    color: #00DC82;
 }
 
-.popup-notice p {
+.notice-content {
+    flex: 1;
+}
+
+.notice-main {
     font-size: 0.875rem;
-    color: #FFC700;
+    font-weight: 600;
+    color: #00DC82;
+    line-height: 1.4;
+    margin: 0 0 0.25rem 0;
+}
+
+.notice-desc {
+    font-size: 0.8125rem;
+    color: #8A8A8A;
     line-height: 1.5;
     margin: 0;
+}
+
+/* ===== TRANSACTION DETAILS ===== */
+.transaction-details {
+    background-color: rgba(0, 220, 130, 0.05);
+    border: 1px solid rgba(0, 220, 130, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.details-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #00DC82;
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 220, 130, 0.1);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    font-size: 0.875rem;
+    color: #8A8A8A;
+    font-weight: 400;
+}
+
+.detail-value {
+    font-size: 0.875rem;
+    color: #E4E4E7;
+    font-weight: 500;
 }
 
 /* ===== POPUP ACTIONS ===== */
