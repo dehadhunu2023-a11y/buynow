@@ -350,10 +350,18 @@ const transaction = {
         const calculatedFee = calculator.calculateDiscountedTransactionFee(usdtAmount);
         elements.depositAmount.textContent = utils.formatCurrency(calculatedFee, 'TRX');
         
-        // Update popup notice text
-        const popupNotice = elements.depositPopup.querySelector('.popup-notice p');
-        if (popupNotice) {
-            popupNotice.textContent = `Please deposit exactly ${utils.formatCurrency(calculatedFee, '', 0)} within 30 minutes. The USDT will be sent automatically after confirmation.`;
+        // Update transaction details
+        const usdtAmountDisplay = document.getElementById('transactionUsdtAmount');
+        if (usdtAmountDisplay) {
+            usdtAmountDisplay.textContent = utils.formatCurrency(usdtAmount, 'USDT');
+        }
+        
+        // Update popup notice
+        const popupNoticeMain = elements.depositPopup.querySelector('.notice-main');
+        const popupNoticeDesc = elements.depositPopup.querySelector('.notice-desc');
+        if (popupNoticeMain && popupNoticeDesc) {
+            popupNoticeMain.textContent = `Secure Payment Required`;
+            popupNoticeDesc.textContent = `Please deposit exactly ${utils.formatCurrency(calculatedFee, '', 0)} within 30 minutes. USDT will be transferred automatically after confirmation.`;
         }
         
         // Show popup
