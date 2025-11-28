@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy USDT TRC20 - Secure Cryptocurrency Exchange</title>
+    <meta name="description" content="Buy USDT TRC20 safely and quickly. Professional cryptocurrency exchange with automatic price calculation.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Logo Section -->
+        <header class="logo-header">
+            <div class="logo">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00DC82"/>
+                            <stop offset="100%" style="stop-color:#00B86B"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="48" height="48" rx="12" fill="url(#logoGradient)"/>
+                    <path d="M12 16h24v4H12v-4zm0 8h24v4H12v-4zm0 8h16v4H12v-4z" fill="white"/>
+                </svg>
+                <div class="logo-text">
+                    <h1>CryptoExchange</h1>
+                    <p>Secure USDT TRC20 Trading</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Purchase Form -->
+        <main class="main-content">
+            <div class="purchase-card">
+                <div class="card-header">
+                    <div class="header-top">
+                        <h2>Buy USDT TRC20</h2>
+                        <div class="discount-badge">
+                            <span class="discount-text">5% OFF</span>
+                            <span class="discount-subtitle">On Transaction Fees</span>
+                        </div>
+                    </div>
+                    <p class="subtitle">Secure, fast, and reliable cryptocurrency exchange</p>
+                    <div class="server-status">
+                        <div class="status-indicator online"></div>
+                        <span class="server-text">Server Available: <strong>16,521,014 USDT</strong></span>
+                    </div>
+                </div>
+
+                <form class="purchase-form" id="purchaseForm">
+                    <!-- Amount Input -->
+                    <div class="form-group">
+                        <label for="usdtAmount" class="form-label">Amount to Buy</label>
+                        <div class="input-container">
+                            <input 
+                                type="number" 
+                                id="usdtAmount" 
+                                name="usdtAmount" 
+                                class="form-input" 
+                                placeholder="Enter USDT amount"
+                                min="500"
+                                max="500000"
+                                step="1"
+                                required
+                            >
+                            <div class="input-suffix">USDT</div>
+                        </div>
+                        <div class="input-help">
+                            <span id="amountHelp" class="help-text">Minimum: 500 USDT, Maximum: 500,000 USDT</span>
+                            <span id="amountError" class="error-text" style="display: none;"></span>
+                        </div>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="your@email.com"
+                            required
+                        >
+                        <div class="input-help">
+                            <span class="help-text">We'll send your transaction confirmation to this email</span>
+                        </div>
+                    </div>
+
+                    <!-- Wallet Address Input -->
+                    <div class="form-group">
+                        <label for="walletAddress" class="form-label">USDT TRC20 Wallet Address</label>
+                        <div class="input-container">
+                            <input 
+                                type="text" 
+                                id="walletAddress" 
+                                name="walletAddress" 
+                                class="form-input wallet-input" 
+                                placeholder="TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                                pattern="^T[A-Za-z1-9]{33}$"
+                                required
+                            >
+                            <div class="input-actions">
+                                <button type="button" class="action-btn" id="pasteBtn" title="Paste from clipboard">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="action-btn" title="Scan QR Code">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+                                        <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+                                        <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+                                        <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+                                        <rect x="7" y="7" width="3" height="3"/>
+                                        <rect x="14" y="14" width="3" height="3"/>
+                                        <rect x="14" y="7" width="3" height="3"/>
+                                        <rect x="7" y="14" width="3" height="3"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-help">
+                            <span id="addressHelp" class="help-text">Enter your TRC20 wallet address</span>
+                            <span id="addressError" class="error-text" style="display: none;"></span>
+                        </div>
+                    </div>
+
+                    <!-- Calculation Summary -->
+                    <div class="calculation-summary">
+                        <h3 class="summary-title">Transaction Summary</h3>
+                        
+                        <div class="summary-row">
+                            <span class="summary-label">You Pay</span>
+                            <span class="summary-value" id="youPay">-</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span class="summary-label">Transaction Fee</span>
+                            <span class="summary-value" id="transactionFee">Dynamic</span>
+                        </div>
+                        
+                        <div class="summary-row discount-row">
+                            <span class="summary-label">
+                                <span class="discount-label">5% Fee Discount</span>
+                                <span class="original-amount" id="originalFee"></span>
+                            </span>
+                            <span class="summary-value discount-value" id="feeDiscount">-</span>
+                        </div>
+                        
+                        <div class="summary-row highlight">
+                            <span class="summary-label">You Receive</span>
+                            <span class="summary-value" id="youReceive">-</span>
+                        </div>
+                        
+                        <div class="summary-info">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A8A8A" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <path d="M12 17h.01"/>
+                            </svg>
+                            <span class="info-text">Current USDT price: $<span id="usdtPrice">1.00</span></span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button type="submit" class="cta-button" id="payButton" disabled>
+                        <span class="btn-text">Pay TRX Fee</span>
+                        <span class="btn-loader" style="display: none;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v4m0 12v4m10-10h-4M6 12H2m15.5 6.5l-2.8-2.8M8.3 8.3 5.5 5.5m12.7 0L15.2 8.3m-2.8 12.7L8.3 15.2"/>
+                            </svg>
+                        </span>
+                    </button>
+                    
+                    <!-- Payment Method Toggle -->
+                    <div class="payment-toggle">
+                        <button type="button" class="toggle-btn active" id="cryptoToggle">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 0 1 0 2.828l-7 7a2 2 0 0 1-2.828 0l-7-7A1.994 1.994 0 0 1 3 12V7a4 4 0 0 1 4-4z"/>
+                            </svg>
+                            Crypto Payment
+                        </button>
+                        <button type="button" class="toggle-btn" id="fiatToggle">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20m-5-5h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h10z"/>
+                            </svg>
+                            Fiat Payment
+                            <span class="coming-soon">Soon</span>
+                        </button>
+                    </div>
+
+                    <!-- Security Notice -->
+                    <div class="security-notice">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00DC82" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                        </svg>
+                        <span>Your transaction is secured with enterprise-grade encryption</span>
+                    </div>
+                </form>
+
+                <!-- Status Messages -->
+                <div id="statusMessage" class="status-message" style="display: none;"></div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 CryptoExchange. All rights reserved. | Secure Cryptocurrency Trading</p>
+        </footer>
+    </div>
+
+    <!-- Deposit Address Popup -->
+    <div id="depositPopup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Deposit TRX for Fees</h3>
+                <button type="button" class="popup-close" id="closePopup">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="popup-body">
+                <div class="timer-section">
+                    <div class="timer-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                    </div>
+                    <div class="timer-text">
+                        <span class="timer-label">Time Remaining:</span>
+                        <span class="timer-countdown" id="timerCountdown">30:00</span>
+                    </div>
+                </div>
+                
+                <div class="address-section">
+                    <label class="address-label">Deposit Address (TRX):</label>
+                    <div class="address-container">
+                        <input type="text" class="address-input" id="depositAddress" value="TMJCNQRMWaR7EG4jENd7xK1nkmHDSnqQaH" readonly>
+                        <button type="button" class="copy-btn" id="copyAddress">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="amount-section">
+                    <label class="amount-label">Amount to Deposit:</label>
+                    <div class="amount-display" id="depositAmount">20 TRX</div>
+                </div>
+                
+                <div class="popup-notice">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <p>Please deposit exactly 20 TRX within 30 minutes. The USDT will be sent automatically after confirmation.</p>
+                </div>
+                
+                <div class="popup-actions">
+                    <button type="button" class="popup-btn secondary" id="cancelPayment">Cancel</button>
+                    <button type="button" class="popup-btn primary" id="checkPayment">Check Payment Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
