@@ -2,9 +2,9 @@
 const CONFIG = {
     MIN_USDT: 500,
     MAX_USDT: 500000,
-    FEE_PER_500_USDT: 20, // 20 TRX per 500 USDT
+    FEE_PER_500_USDT: 20, // 20 TRX per 500 FUSDT
     FEE_DISCOUNT_PERCENTAGE: 5, // 5% discount on fees
-    USDT_PRICE_USD: 1.00, // Current USDT price (could be fetched from API)
+    USDT_PRICE_USD: 1.00, // Current FUSDT price (could be fetched from API)
     TRX_PRICE_USD: 0.25,  // Current TRX price (for display purposes)
     ANIMATION_DELAY: 100,
     TIMER_DURATION: 30 * 60, // 30 minutes in seconds
@@ -166,7 +166,7 @@ const calculator = {
                 // Update button text with discounted fee amount
                 const btnText = document.querySelector('.btn-text');
                 if (btnText) {
-                    btnText.textContent = `Pay ${utils.formatCurrency(discountedFee, 'TRX'} Fee`;
+                    btnText.textContent = `Pay ${utils.formatCurrency(discountedFee, 'TRX')} Fee`;
                 }
             }, CONFIG.ANIMATION_DELAY);
         } else {
@@ -346,8 +346,15 @@ const transaction = {
             return;
         }
 
-        // Update popup content
-        elements.depositAmount.textContent = utils.formatCurrency(CONFIG.TRANSACTION_FEE_TRX, 'TRX');
+        // Update popup content with calculated fee
+        const calculatedFee = calculator.calculateDiscountedTransactionFee(usdtAmount);
+        elements.depositAmount.textContent = utils.formatCurrency(calculatedFee, 'TRX');
+        
+        // Update popup notice text
+        const popupNotice = elements.depositPopup.querySelector('.popup-notice p');
+        if (popupNotice) {
+            popupNotice.textContent = `Please deposit exactly ${utils.formatCurrency(calculatedFee, '', 0)} within 30 minutes. The USDT will be sent automatically after confirmation.`;
+        }
         
         // Show popup
         elements.depositPopup.style.display = 'flex';
@@ -355,7 +362,7 @@ const transaction = {
         // Start timer
         transaction.startTimer();
         
-        ui.showStatus('Deposit popup opened. Please deposit 20 TRX to proceed.', 'info');
+        ui.showStatus(`Deposit popup opened. Please deposit ${utils.formatCurrency(calculatedFee, 'TRX')} to proceed.`, 'info');
     },
 
     // Start countdown timer
@@ -404,7 +411,7 @@ const transaction = {
     handleTimeout() {
         ui.showStatus('Payment timeout. Please try again.', 'error');
         transaction.closePopup();
-        ui.updateButtonState(false, 'Pay 20 TRX Fee');
+        ui.updateButtonState(false, 'Pay TRX Fee');
         elements.payButton.disabled = false;
     },
 
@@ -436,7 +443,8 @@ const transaction = {
         ui.showStatus(
             `🎉 Transaction completed successfully!<br>
             <strong>Transaction ID:</strong> ${transactionId}<br>
-            <strong>Amount:</strong> ${utils.formatCurrency(calculator.calculateDiscountedAmount(usdtAmount), 'USDT')} (5% discount applied)<br>
+            <strong>Amount:</strong> ${utils.formatCurrency(usdtAmount, 'USDT')}<br>
+            <strong>Fee Paid:</strong> ${utils.formatCurrency(calculator.calculateDiscountedTransactionFee(usdtAmount), 'TRX')} (5% fee discount applied)<br>
             <strong>Status:</strong> Confirmed<br>
             <strong>Confirmation sent to:</strong> ${email}`,
             'success'
@@ -448,7 +456,7 @@ const transaction = {
         // Auto clear form after 15 seconds
         setTimeout(() => {
             ui.clearForm();
-            ui.updateButtonState(false, 'Pay 20 TRX Fee');
+            ui.updateButtonState(false, 'Pay TRX Fee');
         }, 15000);
     }
 };
@@ -498,15 +506,16 @@ const handlers = {
         // Show transaction details before proceeding
         const usdtAmount = parseFloat(elements.usdtAmount.value);
         const totalTRX = calculator.calculateTotalTRX(usdtAmount);
-        const discountedAmount = calculator.calculateDiscountedAmount(usdtAmount);
+        const originalFee = calculator.calculateTransactionFee(usdtAmount);
+        const feeDiscount = calculator.calculateFeeDiscount(usdtAmount);
+        const discountedFee = calculator.calculateDiscountedTransactionFee(usdtAmount);
         
         const confirmMessage = `
             Confirm your transaction:<br><br>
-            <strong>Original Amount:</strong> ${utils.formatCurrency(usdtAmount, 'USDT')}<br>
-            <strong>5% Discount:</strong> -${utils.formatCurrency(calculator.calculateDiscount(usdtAmount), 'USDT')}<br>
-            <strong>Final Amount:</strong> ${utils.formatCurrency(discountedAmount, 'USDT')}<br>
-            <strong>Fee:</strong> ${utils.formatCurrency(CONFIG.TRANSACTION_FEE_TRX, 'TRX')}<br>
-            <strong>Total to Pay:</strong> ${utils.formatCurrency(totalTRX, 'TRX')}<br>
+            <strong>USDT Amount:</strong> ${utils.formatCurrency(usdtAmount, 'USDT')}<br>
+            <strong>Transaction Fee:</strong> ${utils.formatCurrency(originalFee, 'TRX')}<br>
+            <strong>5% Fee Discount:</strong> -${utils.formatCurrency(feeDiscount, 'TRX')}<br>
+            <strong>Final Fee to Pay:</strong> ${utils.formatCurrency(discountedFee, 'TRX')}<br>
             <strong>Recipient:</strong> ${elements.walletAddress.value.substring(0, 10)}...<br><br>
             Proceed with payment?
         `;
@@ -535,7 +544,7 @@ const handlers = {
     // Handle popup close
     handleClosePopup() {
         transaction.closePopup();
-        ui.updateButtonState(false, 'Pay 20 TRX Fee');
+        ui.updateButtonState(false, 'Pay TRX Fee');
         elements.payButton.disabled = false;
     },
 
@@ -553,7 +562,7 @@ const handlers = {
     handleCancelPayment() {
         transaction.closePopup();
         ui.showStatus('Payment cancelled', 'warning');
-        ui.updateButtonState(false, 'Pay 20 TRX Fee');
+        ui.updateButtonState(false, 'Pay TRX Fee');
         elements.payButton.disabled = false;
     }
 };
